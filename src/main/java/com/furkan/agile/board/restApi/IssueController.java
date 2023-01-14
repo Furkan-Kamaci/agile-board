@@ -1,39 +1,44 @@
 package com.furkan.agile.board.restApi;
 
+
+import com.furkan.agile.board.business.IIssueService;
 import com.furkan.agile.board.entity.Issue;
 import com.furkan.agile.board.repository.IssueRepository;
-import jakarta.annotation.PostConstruct;
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class IssueController {
-
     @Autowired
-    private IssueRepository issueRepository;
+    IIssueService iIssueManger;
 
-    @GetMapping("/a")
-    public String workCheck(){
-        return "it works...";
+    public IssueController(IIssueService iIssueManger) {
+        this.iIssueManger = iIssueManger;
     }
 
-    @GetMapping("/all")
-    public List<Issue> getAll(){
-       return issueRepository.findAll();
-    }
 
-    @PostMapping("/save")
-    public String saveEmployee(@RequestBody Issue issue) {
-        issueRepository.save(issue);
-        return "Employee saved..";
-    }
+    @GetMapping("/test")
+    public String workingTest(Model model){
 
+        model.addAttribute("message","It works..");
+        model.addAttribute("listOfIssue",iIssueManger.findAll());
+
+        return "workingtest";
+    }
+    @GetMapping("/findAll")
+    public String getAll(Model model){
+        model.addAttribute("listOfIssue",iIssueManger.findAll());
+        model.addAttribute("listOfBacklogIssue",iIssueManger.findAllBacklog());
+        model.addAttribute("listOfTodoIssue",iIssueManger.findAllTodo());
+        model.addAttribute("listOfInProgressIssue",iIssueManger.findAllInProgress());
+        model.addAttribute("listOfDoneIssue",iIssueManger.findAllDone());
+
+        return "findall";
+    }
 
 
 }

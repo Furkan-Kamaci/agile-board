@@ -15,3 +15,20 @@ CREATE TABLE issue (
  `desc` TEXT,
 Status VARCHAR(10)
   );
+
+
+--DROP TABLE IF EXISTS issue_backlog;
+--
+--
+--CREATE TABLE issue_backlog (
+--issue_backlog_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+--issue_id INTEGER,
+-- Name VARCHAR(50)
+--
+-- );
+--
+--ALTER TABLE issue_backlog ADD (
+--CONSTRAINT issue_backlog_reg_fk FOREIGN KEY (issue_id)
+--          	  REFERENCES issue(issue_id)
+--    )
+--;
