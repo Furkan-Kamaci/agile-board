@@ -32,50 +32,85 @@
 
 
 
-<div class="container  ">
-    <div class="card align-items-center justify-content-center" >
-        <div class="card-body  ">
+<!--<div class="container  ">-->
+<!--    <div class="card align-items-center justify-content-center" >-->
+<!--        <div class="card-body  ">-->
 
-            <form  action="/updateIssue" method="post" id="issueForm" th:object="${issue}">
-                <table>
-                    <tr>
-                        <td><label for="issueId">Issue Id</label></td>
-                        <td><input id="issueId" type="text" name="issueId" th:value="*{issueId}" ></input></td>
-                    </tr>
-                    <tr>
-<!--                        <td><div type="text" th:field="*{issueId}" th:value="*{issueId}"></div></td>-->
-
-                        <td><label for="name">Issue Name</label></td>
-                        <td><input id="name" type="text" name="name" th:value="*{name}" ></input></td>
-<!--<td>-->
-<!--    <select class="form-select" aria-label="Default select example" th:field="*{status}" >-->
-<!--        <option value="1">One</option>-->
-<!--        <option value="2">Two</option>-->
-<!--        <option value="3">Three</option>-->
-<!--    </select>-->
-<!--</td>-->
-                    </tr>
+<!--            <form  action="/updateIssue" method="post" id="issueForm" th:object="${issue}">-->
+<!--                <table>-->
 <!--                    <tr>-->
-<!--                        <td><label for="desc">Description</label></td>-->
-<!--                        &lt;!&ndash;      <td><input id="desc" type="text" name="desc"></input></td>&ndash;&gt;-->
+<!--                        <td><label for="issueId">Issue Id</label></td>-->
+<!--                        <td><input id="issueId" type="text" name="issueId" th:value="*{issueId}" ></input>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--&lt;!&ndash;                        <td><div type="text" th:field="*{issueId}" th:value="*{issueId}"></div></td>&ndash;&gt;-->
+
+<!--                        <td><label for="name">Issue Name</label></td>-->
+<!--                        <td><input id="name" type="text" name="name" th:value="*{name}" ></input></td>-->
+
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td><label for="name">Status</label></td>-->
+<!--                        <td>-->
+<!--                                <select th:field="*{status}">-->
+<!--                                      <option th:each="status : ${statuses}"-->
+<!--                                   th:value="${status}"-->
+<!--                                      th:text="${status}"></option>-->
+<!--                                  </select>-->
+<!--                         </td>-->
 <!--                    </tr>-->
 
-                </table>
-            </form>
-            </br>
-            <label for="desc" form="issueForm">Description</label>
-            </br>
-            <textarea  id="desc" name="desc"  type="text" rows="3" form="issueForm" th:text="${issue.desc}" align-items-center justify-content-center></textarea>
-            </br>
 
-            <input type="submit" value="Save All" form="issueForm" align-items-center justify-content-center></input>
-            <a th:href="@{'/deleteIssue/'+${issue.issueId}}" class="btn btn-danger">Delete Issue</a>
+<!--&lt;!&ndash;                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td><label for="desc">Description</label></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        &lt;!&ndash;      <td><input id="desc" type="text" name="desc"></input></td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tr>&ndash;&gt;-->
+
+<!--                </table>-->
+<!--            </form>-->
+<!--            </br>-->
+<!--            <label for="desc" form="issueForm">Description</label>-->
+<!--            </br>-->
+<!--            <textarea  id="desc" name="desc"  type="text" rows="3" form="issueForm" th:text="${issue.desc}" align-items-center justify-content-center></textarea>-->
+<!--            </br>-->
+
+<!--            <input type="submit" value="Save All" form="issueForm" align-items-center justify-content-center></input>-->
+<!--            <a th:href="@{'/deleteIssue/'+${issue.issueId}}" class="btn btn-danger">Delete Issue</a>-->
 
 
 
-        </div>
-    </div>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<div style="text-align:center;">
+    <form style="margin: 30px;" action="/updateIssue" method="post" id="issueForm" th:object="${issue}">
+
+        <label for="issueId">Issue Id</label>
+        <input id="issueId" type="text" name="issueId" th:value="*{issueId}" style="margin: 10px 10px 10px 25px;"></input>
+        </br>
+        <label for="name">Issue Name</label>
+        <input id="name" type="text" name="name" th:value="*{name}"  ></input><br><br>
+       <label for="name">Status</label>
+            <select th:field="*{status}">
+                <option th:each="status : ${statuses}"
+                        th:value="${status}"
+                        th:text="${status}"></option>
+            </select>
+        </br>
+        <label style="display:inline-block; vertical-align: top;" for="desc">Description:</label>
+
+        <textarea  id="desc" name="desc"  type="text" rows="10" cols="50" form="issueForm" th:text="${issue.desc}" align-items-center justify-content-center></textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+        <a th:href="@{'/deleteIssue/'+${issue.issueId}}" class="btn btn-danger">Delete Issue</a>
+    </form>
 </div>
+
 
 </body>
 </html>

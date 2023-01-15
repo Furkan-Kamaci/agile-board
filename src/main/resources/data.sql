@@ -15,7 +15,7 @@ WHERE
 
 
 insert into issue (name,`desc`)
-values ('create SpringBoot project', '-java 17 -maven -group id: com.furkan.agile -Artifact: board -packaging: jar -dependencies: [web, mysql, jdbc, h2');
+values ('create SpringBoot project', '-java 17, -maven -group id: com.furkan.agile -artifact: board -packaging: jar -dependencies: [web, mysql, jdbc, h2]');
 
 
 --insert into issue_backlog (issue_id) values(2)
@@ -29,3 +29,21 @@ SET
     Status = 'DONE'
 WHERE
     issue_id= 1;
+
+
+insert into issue (name,`desc`,status)
+values ('arrange alignments for forms', 'arrange the positions of elements of forms', 'TODO');
+
+
+UPDATE issue
+SET
+    Status = 'DONE'
+WHERE
+    issue_id= 2;
+
+
+insert into issue (name,`desc`,status)
+values ('Add sign in module', 'Add sign in module in order to work group of people', 'BACKLOG');
+
+
+

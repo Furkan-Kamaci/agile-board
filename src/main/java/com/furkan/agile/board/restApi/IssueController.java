@@ -3,6 +3,7 @@ package com.furkan.agile.board.restApi;
 
 import com.furkan.agile.board.business.IIssueService;
 import com.furkan.agile.board.entity.Issue;
+import com.furkan.agile.board.entity.Status;
 import com.furkan.agile.board.repository.IssueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -116,6 +118,13 @@ public class IssueController {
 iIssueManger.deleteById(id);
 
         return new RedirectView("/board");
+    }
+
+
+
+    @ModelAttribute("statuses")
+    public List<String> statuses() {
+        return Arrays.asList("BACKLOG", "TODO", "INPROGRESS", "DONE");
     }
 
 }

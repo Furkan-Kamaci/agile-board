@@ -77,6 +77,8 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${todoIssue.name}"></h5>
                     <p class="card-text" th:text="${todoIssue.desc }"></p>
+                    <a th:href="@{'/editIssueForm/' + ${todoIssue.issueId}}" class="stretched-link"></a>
+
                 </div>
             </div>
         </div>
@@ -84,22 +86,28 @@
 <!--        INPROGRESS-->
 
         <div class="col">
+            <div class="row" th:each ="inProgressIssue: ${listOfInProgressIssue}">
+
             <div class="card" style="width: 18rem;">
-                <div class="row" th:each ="inProgressIssue: ${listOfInProgressIssue}">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${inProgressIssue.name}"></h5>
                         <p class="card-text" th:text="${inProgressIssue.desc }"></p>
+                        <a th:href="@{'/editIssueForm/' + ${inProgressIssue.issueId}}" class="stretched-link"></a>
+
                     </div>
                  </div>
             </div>
         </div>
 
         <div class="col">
+            <div class="row" th:each ="doneIssue: ${listOfDoneIssue}">
+
             <div class="card" style="width: 18rem;">
-                <div class="row" th:each ="doneIssue: ${listOfDoneIssue}">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${doneIssue.name}"></h5>
                         <p class="card-text" th:text="${doneIssue.desc }"></p>
+                        <a th:href="@{'/editIssueForm/' + ${doneIssue.issueId}}" class="stretched-link"></a>
+
                     </div>
                 </div>
             </div>
