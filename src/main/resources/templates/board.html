@@ -11,7 +11,7 @@
 
 <!--<h1 th:text="${listOfIssue.get(0).name}"></h1>-->
 <div class="navbar navbar-expand-md navbar-light bg-primary">
-    <a href="#" class="navbar-brand text-white">Agile Board</a>
+    <a th:href="@{/board}"  class="navbar-brand text-white">Agile Board</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#randomNavbar" aria-controls="randomNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +53,7 @@
                 <div class="col"></div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body justify-content-center align-self-center">
-                        <a href="#" class="btn btn-primary stretched-link">Create New Backlog</a>
+                        <a th:href="@{/saveIssueForm}" class="btn btn-primary stretched-link">Create New Backlog</a>
                     </div>
                 </div>
             </div>
@@ -64,6 +64,7 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${backlogIssue.name}"></h5>
                     <p class="card-text" th:text="${backlogIssue.desc }"></p>
+                    <a th:href="@{'/editIssueForm/' + ${backlogIssue.issueId}}" class="stretched-link"></a>
                 </div>
             </div>
             </div>

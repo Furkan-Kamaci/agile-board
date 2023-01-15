@@ -4,6 +4,7 @@ import com.furkan.agile.board.entity.Issue;
 import com.furkan.agile.board.repository.IssueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +21,13 @@ public class IssueManager implements IIssueService {
 
 
     @Override
+    @Transactional
     public List<Issue> findAll() {
      return    issueRepository.findAll();
     }
 
     @Override
+    @Transactional
     public List<Issue> findAllBacklog() {
         List<Issue> listBacklogIssue = new ArrayList<>();
 
@@ -39,6 +42,7 @@ public class IssueManager implements IIssueService {
     }
 
     @Override
+    @Transactional
     public List<Issue> findAllTodo() {
         List<Issue> listTodoIssue = new ArrayList<>();
 
@@ -53,6 +57,7 @@ public class IssueManager implements IIssueService {
     }
 
     @Override
+    @Transactional
     public List<Issue> findAllInProgress() {
         List<Issue> listInProgressIssue = new ArrayList<>();
 
@@ -67,6 +72,7 @@ public class IssueManager implements IIssueService {
     }
 
     @Override
+    @Transactional
     public List<Issue> findAllDone() {
         List<Issue> listDoneIssue = new ArrayList<>();
 
@@ -78,5 +84,21 @@ public class IssueManager implements IIssueService {
 
 
         return listDoneIssue;
+    }
+
+    @Override
+    @Transactional
+    public void save(Issue issue) {
+        issueRepository.save(issue);
+    }
+
+    @Override
+    public Issue getById(Long id) {
+      return   issueRepository.getReferenceById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        issueRepository.deleteById(id);
     }
 }

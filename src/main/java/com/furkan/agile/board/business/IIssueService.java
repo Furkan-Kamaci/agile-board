@@ -12,4 +12,10 @@ public interface IIssueService {
      List<Issue> findAllInProgress();
 
     List<Issue> findAllDone();
+
+    void save(Issue issue);
+
+    Issue getById(Long id);
+
+    void deleteById(Long id);
 }
