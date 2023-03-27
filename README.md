@@ -15,8 +15,17 @@ Suitable for single user. <br>
 
 
 To run with Docker <br>
-1 pull with the code: docker pull foorcun/board_img <br>
-2 run with the code: docker run -p 8080:8080 foorcun/board_img <br>
-3 go to the url: http://localhost:8080/index <br>
+1 pull with the code: 
+```.sh
+docker pull foorcun/board_img
+```
+2 run with the code: 
+```.sh
+docker run -p 8080:8080 foorcun/board_img
+```
+3 go to the url: 
+```.sh
+http://localhost:8080/index
+```
 
 
