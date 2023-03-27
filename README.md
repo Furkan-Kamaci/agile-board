@@ -1,4 +1,4 @@
-"# agile_board" 
+# Agile Board
 
 A simple agile development board as a Portfolio project.
 
@@ -14,7 +14,7 @@ All CRUD operations for "Issue". <br>
 Suitable for single user. <br>
 
 
-To run with Docker <br>
+# To run with Docker
 1 pull with the code: 
 ```.sh
 docker pull foorcun/board_img
