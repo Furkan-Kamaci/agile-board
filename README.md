@@ -1,6 +1,6 @@
 # Agile Board
 
-A simple agile development board as a Portfolio project.
+A simple agile development board as a Java Portfolio project.
 
 Restful, 3 tier architecture. 
 So database and front end can be replaced easily.
